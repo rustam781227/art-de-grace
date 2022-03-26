@@ -1,7 +1,7 @@
 <?
 $MESS["AUTH_REGISTER"] = "Регистрация";
 $MESS["REGISTER_CAPTCHA_TITLE"] = "Защита от автоматической регистрации";
-$MESS["REGISTER_CAPTCHA_PROMT"] = "Введите слово на картинке";
+$MESS["REGISTER_CAPTCHA_PROMT"] = "Введите символы с картинки";
 $MESS["AUTH_REQ"] = "Поля, обязательные для заполнения.";
 $MESS["USER_DONT_KNOW"] = "(неизвестно)";
 $MESS["USER_MALE"] = "Мужской";

@@ -25,7 +25,7 @@
                                      alt="+">
                             </div>
                         </div>
-                        <div class="slider">
+                        <div class="slider" id="slider_<?=$arItem["ID"]?>">
                             <div class="slider__wrapper">
                                 <div class="slider__items">
                                     <?php foreach ($arItem['PROPERTIES']['KARTINKI']['VALUE'] as $pic): ?>
@@ -46,8 +46,10 @@
                             Аукцион завершится через: <span id="end_time_<?=$arItem["ID"]?>"><?= $arItem["PROPERTIES"]["END_TIME"]["VALUE"] ?></span>
                         </div>
                         <div class="right">
-                            Подробнее
-                            <img src="<?= SITE_TEMPLATE_PATH ?>/images/show_info.svg" alt="">
+                            <div class="right_kek">
+                                Подробнее
+                                <img src="<?= SITE_TEMPLATE_PATH ?>/images/show_info.svg" alt="">
+                            </div>
                             <img id="close_info_img" src="<?= SITE_TEMPLATE_PATH ?>/images/cross_in_circle.svg" alt="x">
                         </div>
                         <div class="focus-information">
@@ -55,7 +57,7 @@
                             <? echo $arItem["DESCRIPTION"]['VALUE'] ?>
                         </div>
                         <div class="more-info">
-                            <?= $arItem["DESCRIPTION"] ?>
+                            <?= $arItem["PROPERTIES"]["DESCRIPTION"]["VALUE"] ?>
                         </div>
                         <div class="price">
                             Текущая цена:
@@ -115,12 +117,6 @@
 
     const div = document.querySelector('.popup');
 
-    // document.addEventListener( 'click', (e) => {
-    //     const withinBoundaries = e.composedPath().includes(div);
-    //     if (!withinBoundaries) {
-    //         div.style.display = 'none'; // скрываем элемент т к клик был за его пределами
-    //     }
-    // });
     div.addEventListener("click", function (e) {
         if (!e.target.closest('.popup__content')) {
             div.style.display = 'none';

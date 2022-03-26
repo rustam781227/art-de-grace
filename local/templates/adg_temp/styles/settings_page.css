@@ -1,0 +1,152 @@
+.settings_close {
+    margin-bottom: 64px;
+    text-align: right;
+}
+
+.settings_close img {
+    padding-top: 58px;
+    padding-right: 60px;
+}
+
+.settings_container {
+    display: flex;
+    flex-direction: row;
+}
+
+.settings_menu {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding-left: 60px;
+    margin-bottom: 400px;
+}
+
+.settings_menu p {
+    margin-bottom: 39px;
+    color: #8F8F8F;
+    font-family: Oswald, sans-serif;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 14px;
+}
+
+.settings_user_info {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 7px;
+}
+
+.settings_user_info img {
+    margin-bottom: 7px;
+    width: 50px;
+    height: auto;
+}
+
+.settings_menu ul {
+    padding: 0;
+    align-items: center;
+    text-align: center;
+    margin: 0 0 42px;
+}
+
+.settings_menu_items li {
+    margin-bottom: 19px;
+    list-style-type: none;
+}
+
+.settings_menu button {
+    font-family: Oswald, sans-serif;
+    font-style: normal;
+    font-size: 18px;
+    line-height: 27px;
+    color: #fff;
+    width: 156px;
+    height: 39px;
+    background: #000000;
+    border-radius: 5px;
+}
+
+.settings_content {
+    width: 100%;
+    overflow: auto;
+    margin: 0 155px 40px 30px;
+
+}
+
+.settings__page {
+    width: 100%;
+    height: 100%;
+    margin:auto;
+    display: flex;
+    flex-wrap: wrap;
+    /*overflow: auto;*/
+    /*background-color: #00a2df;*/
+}
+.user_suggestions {
+    width: 100%;
+    height: 100%;
+}
+.small-card {
+    /*margin-right: 41px;*/
+    margin: 20px auto 20px auto;
+    width: 305px;
+    height: 476px;
+    border: 1px solid #8f8f8f;
+    text-align: center;
+    border-radius: 13px;
+    padding: 37px;
+}
+
+.small-card img {
+    width: 127px;
+    height: auto;
+}
+
+.small-card h3 {
+    font-family: 'Oswald', serif;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 27px;
+    text-align: center;
+    text-decoration-line: underline;
+}
+
+.small-card .price_info {
+    margin-left: 0;
+    display: block;
+    font-family: 'Oswald', serif;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 21px;
+}
+
+.small-card .price_info p {
+    margin-top: 16px;
+}
+
+.remaining-time {
+    margin-top: 27px;
+}
+
+.remaining-time img {
+    width: 20px;
+    height: 20px;
+}
+.remaining-time span {
+    vertical-align: middle;
+}
+
+.user-purchases {
+    display: none;
+}
+
+.user-edit-data {
+    display: none;
+}
+
+
+
+

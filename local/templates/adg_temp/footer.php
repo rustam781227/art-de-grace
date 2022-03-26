@@ -37,7 +37,7 @@
                 <form id="login-form" class="login-form">
                     <?
                     $APPLICATION->IncludeComponent(
-                        "bitrix:system.auth.confirmation",
+                        "bitrix:system.auth.form",
                         "",
                         array(
                             "CONFIRM_CODE" => "confirm_code",
@@ -86,9 +86,12 @@
 
 
 <script>
-    slideShow('.slider', {
-        isAutoplay: true
-    });
+    let slideContainer = document.querySelectorAll('.slider');
+    for (let i = 0; i < slideContainer.length; i++) {
+        slideShow('#' + slideContainer[i].id, {
+            isAutoplay: true
+        });
+    }
 </script>
 <script>
     document.querySelector('.popup-link').addEventListener('click',

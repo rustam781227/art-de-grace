@@ -20,15 +20,12 @@ CJSCore::Init();
             <? foreach ($arResult["POST"] as $key => $value): ?>
                 <input type="hidden" name="<?= $key ?>" value="<?= $value ?>"/>
             <? endforeach ?>
-            <?
-            echo('<!--DEBUG:');
-            var_dump($arItem);
-            echo('-->');
-            ?>
             <input type="hidden" name="AUTH_FORM" value="Y"/>
             <input type="hidden" name="TYPE" value="AUTH"/>
-            <?= GetMessage("AUTH_LOGIN") ?>:<br/>
-            <input type="text" name="USER_LOGIN" maxlength="50" value="" size="17"/>
+            <div class="form-row">
+                <?= GetMessage("AUTH_LOGIN") ?>
+                <input type="text" name="USER_LOGIN" maxlength="50" value="" size="17"/>
+            </div>
             <script>
                 BX.ready(function () {
                     var loginCookie = BX.getCookie("<?=CUtil::JSEscape($arResult["~LOGIN_COOKIE_NAME"])?>");
@@ -39,8 +36,10 @@ CJSCore::Init();
                     }
                 });
             </script>
-            <?= GetMessage("AUTH_PASSWORD") ?>:<br/>
-            <input type="password" name="USER_PASSWORD" maxlength="255" size="17" autocomplete="off"/>
+            <div class="form-row">
+                <?= GetMessage("AUTH_PASSWORD") ?>
+                <input type="password" name="USER_PASSWORD" maxlength="255" size="17" autocomplete="off"/>
+            </div>
             <? if ($arResult["SECURE_AUTH"]): ?>
                 <span class="bx-auth-secure" id="bx_auth_secure<?= $arResult["RND"] ?>"
                       title="<? echo GetMessage("AUTH_SECURE_NOTE") ?>" style="display:none">
@@ -56,9 +55,13 @@ CJSCore::Init();
                 </script>
             <? endif ?>
             <? if ($arResult["STORE_PASSWORD"] == "Y"): ?>
-                <input type="checkbox" id="USER_REMEMBER_frm" name="USER_REMEMBER" value="Y"/>
-                <label for="USER_REMEMBER_frm"
-                       title="<?= GetMessage("AUTH_REMEMBER_ME") ?>"><? echo GetMessage("AUTH_REMEMBER_SHORT") ?></label>
+                <div class="form-row">
+                    <!--                    <label for="USER_REMEMBER_frm"-->
+                    <!--                           title="--><? //= GetMessage("AUTH_REMEMBER_ME") ?><!--">-->
+                    <? // echo GetMessage("AUTH_REMEMBER_SHORT") ?><!--</label>-->
+                    <?= GetMessage("AUTH_REMEMBER_SHORT") ?>
+                    <input type="checkbox" id="USER_REMEMBER_frm" name="USER_REMEMBER" value="Y"/>
+                </div>
             <? endif ?>
             <? if ($arResult["CAPTCHA_CODE"]): ?>
 
@@ -68,44 +71,50 @@ CJSCore::Init();
                      width="180" height="40" alt="CAPTCHA"/><br/><br/>
                 <input type="text" name="captcha_word" maxlength="50" value=""/>
             <? endif ?>
-            <input type="submit" name="Login" value="<?= GetMessage("AUTH_LOGIN_BUTTON") ?>"/>
+            <div class="form-row">
+                <a href="<?= $arResult["AUTH_FORGOT_PASSWORD_URL"] ?>"
+                   rel="nofollow"><?= GetMessage("AUTH_FORGOT_PASSWORD_2") ?>
+                </a>
+                <input type="submit" name="Login" value="<?= GetMessage("AUTH_LOGIN_BUTTON") ?>"/>
+            </div>
+
             <? if ($arResult["NEW_USER_REGISTRATION"] == "Y"): ?>
-                <noindex><a href="<?= $arResult["AUTH_REGISTER_URL"] ?>"
-                            rel="nofollow"><?= GetMessage("AUTH_REGISTER") ?></a></noindex>
+                <!--                <noindex><a href="--><? //= $arResult["AUTH_REGISTER_URL"] ?><!--"-->
+                <!--                            rel="nofollow">--><? //= GetMessage("AUTH_REGISTER") ?><!--</a></noindex>-->
                 <br/>
             <? endif ?>
-            <noindex><a href="<?= $arResult["AUTH_FORGOT_PASSWORD_URL"] ?>"
-                        rel="nofollow"><?= GetMessage("AUTH_FORGOT_PASSWORD_2") ?></a></noindex>
-            <? if ($arResult["AUTH_SERVICES"]): ?>
-                <div class="bx-auth-lbl"><?= GetMessage("socserv_as_user_form") ?></div>
-                <?
-                $APPLICATION->IncludeComponent("bitrix:socserv.auth.form", "icons",
-                    array(
-                        "AUTH_SERVICES" => $arResult["AUTH_SERVICES"],
-                        "SUFFIX" => "form",
-                    ),
-                    $component,
-                    array("HIDE_ICONS" => "Y")
-                );
-                ?>
-            <? endif ?>
+
+            <noindex></noindex>
+<!--            --><?// if ($arResult["AUTH_SERVICES"]): ?>
+<!--                <div class="bx-auth-lbl">--><?//= GetMessage("socserv_as_user_form") ?><!--</div>-->
+<!--                --><?//
+//                $APPLICATION->IncludeComponent("bitrix:socserv.auth.form", "icons",
+//                    array(
+//                        "AUTH_SERVICES" => $arResult["AUTH_SERVICES"],
+//                        "SUFFIX" => "form",
+//                    ),
+//                    $component,
+//                    array("HIDE_ICONS" => "Y")
+//                );
+//                ?>
+<!--            --><?// endif ?>
         </form>
 
-        <? if ($arResult["AUTH_SERVICES"]): ?>
-            <?
-            $APPLICATION->IncludeComponent("bitrix:socserv.auth.form", "",
-                array(
-                    "AUTH_SERVICES" => $arResult["AUTH_SERVICES"],
-                    "AUTH_URL" => $arResult["AUTH_URL"],
-                    "POST" => $arResult["POST"],
-                    "POPUP" => "Y",
-                    "SUFFIX" => "form",
-                ),
-                $component,
-                array("HIDE_ICONS" => "Y")
-            );
-            ?>
-        <? endif ?>
+<!--        --><?// if ($arResult["AUTHfor_SERVICES"]): ?>
+<!--            --><?//
+//            $APPLICATION->IncludeComponent("bitrix:socserv.auth.form", "",
+//                array(
+//                    "AUTH_SERVICES" => $arResult["AUTH_SERVICES"],
+//                    "AUTH_URL" => $arResult["AUTH_URL"],
+//                    "POST" => $arResult["POST"],
+//                    "POPUP" => "Y",
+//                    "SUFFIX" => "form",
+//                ),
+//                $component,
+//                array("HIDE_ICONS" => "Y")
+//            );
+//            ?>
+<!--        --><?// endif ?>
 
     <?
     elseif ($arResult["FORM_TYPE"] == "otp"):

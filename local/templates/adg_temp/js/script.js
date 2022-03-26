@@ -93,21 +93,6 @@ var slideShow = (function () {
       }
     };
 
-    // функция для запуска автоматической смены слайдов через промежутки времени
-    // var _startAutoplay = function () {
-    //   if (!_config.isAutoplay) {
-    //     return;
-    //   }
-    //   _stopAutoplay();
-    //   _timerId = setInterval(function () {
-    //     _move(_config.directionAutoplay);
-    //   }, _config.delayAutoplay);
-    // };
-
-    // функция, отключающая автоматическую смену слайдов
-    // var _stopAutoplay = function () {
-    //   clearInterval(_timerId);
-    // };
 
     // функция, добавляющая индикаторы к слайдеру
     var _addIndicators = function () {
@@ -142,29 +127,12 @@ var slideShow = (function () {
           // _startAutoplay();
         }
       });
-      // document.addEventListener('visibilitychange', function () {
-      //   if (document.visibilityState === "hidden") {
-      //     _stopAutoplay();
-      //   } else {
-      //     _startAutoplay();
-      //   }
-      // }, false);
-      // if (_config.isPauseOnHover && _config.isAutoplay) {
-      //   _slider.addEventListener('mouseenter', function () {
-      //     _stopAutoplay();
-      //   });
-      //   _slider.addEventListener('mouseleave', function () {
-      //     _startAutoplay();
-      //   });
-      // }
     };
 
     // добавляем индикаторы к слайдеру
     _addIndicators();
     // установливаем обработчики для событий
     _setUpListeners();
-    // запускаем автоматическую смену слайдов, если установлен соответствующий ключ
-    // _startAutoplay();
 
     return {
       // метод слайдера для перехода к следующему слайду
